@@ -1,7 +1,11 @@
-import {products} from "../data/data";
+import type {ClothingProduct} from "../data/data";
 import ItemCard from "./ItemCard";
 
-function ItemsContainer()
+interface ItemsContainerProps
+{
+    products: ClothingProduct[];
+}
+function ItemsContainer({products}: ItemsContainerProps)
 {
     return(
         <div>
