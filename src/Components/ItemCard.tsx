@@ -4,9 +4,10 @@ import {useState} from "react";
 interface ItemCardProps 
 {
     product: ClothingProduct;
+    onAddToCheckout: (product: ClothingProduct, quantity: number) => void;
 }
 
-function ItemCard({product}: ItemCardProps)
+function ItemCard({product, onAddToCheckout}: ItemCardProps)
 {
     const [selectedQuantity, setSelectedQuantity] = useState(0);
 
@@ -40,6 +41,10 @@ function ItemCard({product}: ItemCardProps)
             <p>Selected Quantity: {selectedQuantity}</p>
             <button onClick={decreaseQuantity}>-</button>
             <button onClick={increaseQuantity}>+</button>
+            <button onClick={() => {
+            onAddToCheckout(product, selectedQuantity);
+            setSelectedQuantity(0);
+            }}>Add to Checkout</button>
         </div>
     );
 }

@@ -4,8 +4,9 @@ import ItemCard from "./ItemCard";
 interface ItemsContainerProps
 {
     products: ClothingProduct[];
+    onAddToCheckout: (product: ClothingProduct, quantity: number) => void;
 }
-function ItemsContainer({products}: ItemsContainerProps)
+function ItemsContainer({products, onAddToCheckout}: ItemsContainerProps)
 {
     return(
         <div>
@@ -15,6 +16,7 @@ function ItemsContainer({products}: ItemsContainerProps)
                     <ItemCard
                         key={product.id}
                         product={product}
+                        onAddToCheckout={onAddToCheckout}
                     />
                 ))}
             </div>
